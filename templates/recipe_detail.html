@@ -1,1 +1,18 @@
-<h1>recipe detail view  {{recipe_detail}}</h1>
+<h1>Recipe detail page  </h1>
+{% if not recipe_detail%}
+    <h3> The recipe you are looking is not exist</h3>
+{% else %}
+    <h2>Title:</h2>
+    <h3>{{recipe_detail.title}}</h3>
+    <h2>Author Name:</h2>
+    <h3><a href="/author/{{recipe_detail.author.id}}/" > {{recipe_detail.author.name}}</a></h3>
+    <h2>Time Required:</h2>
+    <h3>{{recipe_detail.time_required}}</h3>
+    <h2>Description:</h2>
+    <p>{{recipe_detail.description}}</p>
+    <h2>Instructions:</h2>
+    <p>{{recipe_detail.instruction}}</p>
+{% endif %}
+
+
+<a href="/">Go back home</a>

@@ -1,1 +1,18 @@
-<h2>author page {{author_detail}}</h2>
+<h2>Author Detail page </h2>
+<h1>Name:</h1>
+<h3>{{author_name.name}}</h3>
+<h1>bio:</h1>
+<h3>{{author_name.bio}}</h3>
+<ul>
+    {% for a in author_detail%}
+    
+        <li>
+           
+          <a href="/recipe/{{a.id}}/" > {{a.title}} </a>
+           
+        </li>
+    {%endfor%}
+
+</ul>
+
+<a href="/">Go back home</a>
