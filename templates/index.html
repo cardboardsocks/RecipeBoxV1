@@ -1,0 +1,9 @@
+<h1> Recipes</h1>
+
+<ul>
+    {% for recipe in all_recipes%}
+        <li>
+            {{recipe.title}}
+        </li>
+    {%endfor%}
+</ul>

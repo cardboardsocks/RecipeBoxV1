@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from recipe_box_v1.urls import urlpatterns as recipe_url
 urlpatterns = [
     path('admin/', admin.site.urls),
+
 ]
+urlpatterns += recipe_url
