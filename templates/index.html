@@ -1,9 +1,18 @@
-<h1> Recipes</h1>
+{% extends "base_generic.html" %}
 
-<ul>
-    {% for recipe in all_recipes%}
-        <li>
-           <a href="/recipe/{{recipe.id}}/" >{{recipe.title}}</a>
-        </li>
-    {%endfor%}
-</ul>
+
+{% block content %}
+
+   <a href="/addrecipe/" type="button" class="btn btn-outline-secondary">Add Recipe</a>
+  <a href="/addauthor/" type="button" class="btn btn-outline-success">Add Author</a>  
+<h1> Recipes</h1>
+    <div class="list-group" id="main_grid">   
+
+     {% for recipe in  all_recipes%}   
+           
+            <a href="/recipe/{{recipe.id}}/"  class="list-group-item list-group-item-action ">{{recipe.title}}</a>   
+           
+        {%endfor%}   
+ 
+   </div>   
+{% endblock %}

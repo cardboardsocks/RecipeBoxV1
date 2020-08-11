@@ -1,0 +1,27 @@
+.jumbotron{
+    background-color:#79aec8;
+    color:white;
+}
+  #main_grid  a:nth-child(odd) {
+  background: #bee5eb;
+}
+
+#main_grid  a:nth-child(even) {
+  background: #c3e6cb;
+}
+      #main_grid  a:hover {
+  background: #e4ebef;
+}
+#go_back_btn{
+  float:right;
+}
+.dropdown-item{
+      border: 1px solid #ced4da;
+
+}
+.btn-outline-dark{
+  margin-top:10px;
+}
+textarea{
+  max-height:5rem !important;
+}

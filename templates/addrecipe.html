@@ -1,0 +1,14 @@
+
+{% extends "base_generic.html" %}
+{% block content %}
+
+<form action="/addrecipe/" method="post">
+  <div class="form-group">
+    {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+        <a href="/" type="button" id="go_back_btn" class="btn btn-outline-success">Go Back/cancel</a>
+     </div>
+</form>
+
+{% endblock %}

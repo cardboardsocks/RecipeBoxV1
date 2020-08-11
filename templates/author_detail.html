@@ -1,18 +1,20 @@
-<h2>Author Detail page </h2>
-<h1>Name:</h1>
-<h3>{{author_name.name}}</h3>
-<h1>bio:</h1>
-<h3>{{author_name.bio}}</h3>
-<ul>
-    {% for a in author_detail%}
-    
-        <li>
-           
-          <a href="/recipe/{{a.id}}/" > {{a.title}} </a>
-           
-        </li>
-    {%endfor%}
+{% extends "base_generic.html" %}
+{% block content %}
+<div class="card">
+  <h5 class="card-header">Author Detail page </h5>
+  <div class="card-body">
+    <h5 class="card-title">Name : {{author_name.name}} </h5>
+    <h5 class="card-title">Bio :  </h5>
+    <p class="card-text">{{author_name.bio}}</p>
+    <div class="list-group">
+        {% for a in author_detail%}          
+            <a href="/recipe/{{a.id}}/" class="list-group-item list-group-item-action "> {{a.title}} </a>     
+        {%endfor%}
 
-</ul>
+      </div>
+      <a href="/" type="button"  class="btn btn-outline-dark">Go Back home</a>
+  </div>
+</div>
 
-<a href="/">Go back home</a>
+
+{% endblock %}
