@@ -2,17 +2,42 @@
 
 
 {% block content %}
+{%  include 'status.html' %}
+   <a href="/addrecipe/" type="button" class="btn btn-outline-secondary"><i class="fas fa-plus"></i> Add Recipe</a>
+  <a href="/addauthor/" type="button" class="btn btn-outline-success"><i class="fas fa-plus"></i> Add Author</a>  
+<br> 
+   {% for message in messages %}                
+        <div class="alert alert-danger" role="alert">
+            <strong>Oh snap!</strong> {{message}}
+       </div>        
+  
+    {%endfor%}
+<br> 
 
-   <a href="/addrecipe/" type="button" class="btn btn-outline-secondary">Add Recipe</a>
-  <a href="/addauthor/" type="button" class="btn btn-outline-success">Add Author</a>  
-<h1> Recipes</h1>
-    <div class="list-group" id="main_grid">   
+<div class="card text-white bg-primary mb-3">
+  <div class="d-flex justify-content-center card-header ">Recipes</div>
+ <div class="card card-body">
+<table class="table table-sm">
+                <tr>
+                    <th>Recipes</th>                   
+                    <th></th>                   
+                    <th>View</th>
+                    <th>Update</th>
+                    <th>Remove</th>
+                </tr>
+                 {% for recipe in  all_recipes%}
+                <tr>
+                    <td>{{recipe.title}}</td>                
+                    <td></td>                
+                  
+                    <td><a class="bt btn-sm btn-primary" href="/recipe/{{recipe.id}}/"><i class="fas fa-external-link-alt"></i> View</a></td>
+                    <td><a class="bt btn-sm btn-secondary" href="#"><i class="far fa-edit"></i> Update</a></td>
+                    <td><a class="bt btn-sm btn-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></td>
 
-     {% for recipe in  all_recipes%}   
-           
-            <a href="/recipe/{{recipe.id}}/"  class="list-group-item list-group-item-action ">{{recipe.title}}</a>   
-           
-        {%endfor%}   
- 
-   </div>   
+                </tr>
+                {%endfor%}
+
+            </table>
+            </div>
+            </div>
 {% endblock %}

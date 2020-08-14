@@ -1,13 +1,36 @@
 
 {% extends "base_generic.html" %}
 {% block content %}
-
+<br>
+<h1> Add New Recipe</h1>
 <form action="/addrecipe/" method="post">
   <div class="form-group">
     {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit">
-        <a href="/" type="button" id="go_back_btn" class="btn btn-outline-success">Go Back/cancel</a>
+        
+        {{ form.title.label }}
+        {{ form.title }}
+        {%if request.user.is_staff %}
+          {{form.author.label}}
+           
+          {{form.author}}
+        {%else%}
+          {{form.author.label}} <br>
+          {{form.author}}
+          <br>
+        {%endif%}
+        {{ form.description.label }}
+        {{ form.description }}
+        {{ form.time_required.label }}
+        {{ form.time_required }}
+        {{ form.instruction.label }}
+        {{ form.instruction }}
+
+      
+<br>
+
+
+        <input class="btn btn-primary" type="submit" value="Submit">
+        <a href="/" type="button" id="go_back_btn" class="btn btn-secondary"><i class="fas fa-reply"></i> Go Back</a>
      </div>
 </form>
 

@@ -15,6 +15,13 @@ class AddAuthorForm(forms.Form):
             'placeholder':'Write the bio of author. . .'
         }
     ))
+    password = forms.CharField(widget=forms.PasswordInput(
+            attrs={
+            'class':'form-control',
+            'placeholder':'Enter the password. . .'
+        }
+  
+    ))
   
     
 class AddRecipeForm(forms.Form):
@@ -24,8 +31,14 @@ class AddRecipeForm(forms.Form):
             'placeholder':'Write the title of recipe. . .'
         }
     ))
+
     author = forms.ModelChoiceField(queryset=Author.objects.all(),
     widget=forms.Select(attrs={'class':'dropdown-item'}))
+
+
+    
+
+    
     description = forms.CharField(widget=forms.Textarea(
            attrs={
             'class':'form-control',
@@ -44,3 +57,5 @@ class AddRecipeForm(forms.Form):
             'placeholder':'add instructions. . .'
         }
     ))
+
+    
