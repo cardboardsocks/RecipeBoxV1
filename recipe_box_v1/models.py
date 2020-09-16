@@ -17,3 +17,7 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.title
+
+class Favorites(models.Model):
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
