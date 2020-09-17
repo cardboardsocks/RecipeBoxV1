@@ -3,11 +3,18 @@
 {% if not recipe_detail%}
     <h3> The recipe you are looking is not exist</h3>
 {% else %} 
-    <div class="card">
-    <h5 class="card-header">Recipe detail page </h5>
-    <div class="card-body">
+<div class="card  bg-primary mb-3">
+  <div class="d-flex justify-content-center card-header text-white ">Recipe detail page</div>
+ <div class="card card-body text-black">
+        {% if request.user == recipe.author.user or request.user.is_staff %}
+    <a href="/recipe/{{ recipe.id }}/edit/"><button>Edit</button></a>
+    
+    {% endif %}
+    {% if request.user.is_authenticated %}
+    <a href="/recipe/{{ recipe.id }}/favorites/" type="button"  class="btn btn-outline-dark">Favorites</a>    
+    {% endif %}
     <h5 class="card-title">Title : {{recipe_detail.title}}</h5>
-    <h5 class="card-title">Author Name : <a href="/author/{{recipe_detail.author.id}}/" class="btn btn-outline-info"  > {{recipe_detail.author.name}}</a></h5>
+    <h5 class="card-title">Author Name : <a href="/author/{{recipe_detail.author.id}}/" class="btn btn-info"  ><i class="fas fa-share"></i> {{recipe_detail.author.name}}</a></h5>
     <h5 class="card-title">Time Required : {{recipe_detail.time_required}}</h5>
     <h5 class="card-title">Time Required : {{recipe_detail.time_required}}</h5>
     <h5 class="card-title">Description :  </h5>
@@ -15,7 +22,7 @@
     <h5 class="card-title">Instructions :  </h5>
     <p class="card-text">{{recipe_detail.instruction}}</p>
    
-      <a href="/" type="button"  class="btn btn-outline-dark">Go Back home</a>
+      <a href="/" type="button"  class="btn btn-secondary"><i class="fas fa-reply"></i> Back</a>
   </div>
 </div>
 {% endif %}

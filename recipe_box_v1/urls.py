@@ -1,4 +1,3 @@
-
 from django.urls import path
 from recipe_box_v1 import views
 urlpatterns = [    
@@ -10,8 +9,6 @@ urlpatterns = [
     path("addrecipe/", views.add_new_recipe_form_view, name="addrecipe"),
     path("recipe/<int:recipe_id>/edit/", views.edit_recipe_view),
     path("recipe/<int:recipe_id>/favorites/", views.favorite_recipe),
-    path("login/", views.login_view, name="loginview"),
-    path("logout/", views.logout_view, name="logoutview"),
-    path("signup/", views.signup_view, name="signup"),
-    path("admin/", admin.site.urls),
+    path("login/", views.login_view, name="login_page"),
+    path("logout/", views.logout_view, name="logout_page"),
 ]

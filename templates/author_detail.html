@@ -6,9 +6,10 @@
     <h5 class="card-title">Name : {{author_name.name}} </h5>
     <h5 class="card-title">Bio :  </h5>
     <p class="card-text">{{author_name.bio}}</p>
+    <a href="/author/{{ author.id }}/favorites/" type="button"  class="btn btn-outline-dark">Favorites</a>
     <div class="list-group">
         {% for a in author_detail%}          
-            <a href="/recipe/{{a.id}}/" class="list-group-item list-group-item-action "> {{a.title}} </a>     
+            <a href="/recipe/{{a.id}}/" class="list-group-item list-group-item-action"> {{a.title}} </a>     
         {%endfor%}
 
       </div>

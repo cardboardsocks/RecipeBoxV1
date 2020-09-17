@@ -1,14 +1,15 @@
 {% extends "base_generic.html" %}
 {% block content %}
 
-
-    <form action="/addauthor/" method="post">
+<br>
+<h1> Add New Author</h1>
+    <form action="/addauthor/" method="POST">
         <div class="form-group">
-            {% csrf_token %}
+            {% csrf_token %}            
             {{ form.as_p }}
+        
             <input class="btn btn-success" type="submit" value="Submit">
-            <a href="/author/{{ author.id }}/favorites/"><button>Favorites</button></a>
-            <a href="/" type="button" id="go_back_btn" class="btn btn-outline-success">Go Back/Cancel</a>
+            <a href="/" type="button" id="go_back_btn" class="btn btn-secondary"><i class="fas fa-reply"></i> Back</a>
         </div>
     </form>
 
