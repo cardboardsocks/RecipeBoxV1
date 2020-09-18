@@ -1,18 +1,29 @@
-<h1>Recipe detail page  </h1>
+{% extends "base_generic.html" %}
+{% block content %}
 {% if not recipe_detail%}
     <h3> The recipe you are looking is not exist</h3>
-{% else %}
-    <h2>Title:</h2>
-    <h3>{{recipe_detail.title}}</h3>
-    <h2>Author Name:</h2>
-    <h3><a href="/author/{{recipe_detail.author.id}}/" > {{recipe_detail.author.name}}</a></h3>
-    <h2>Time Required:</h2>
-    <h3>{{recipe_detail.time_required}}</h3>
-    <h2>Description:</h2>
-    <p>{{recipe_detail.description}}</p>
-    <h2>Instructions:</h2>
-    <p>{{recipe_detail.instruction}}</p>
+{% else %} 
+<div class="card  bg-primary mb-3">
+  <div class="d-flex justify-content-center card-header text-white ">Recipe detail page</div>
+ <div class="card card-body text-black">
+        {% if request.user == recipe.author.user or request.user.is_staff %}
+    <a href="/recipe/{{ recipe.id }}/edit/"><button>Edit</button></a>
+    
+    {% endif %}
+    {% if request.user.is_authenticated %}
+    <a href="/recipe/{{ recipe.id }}/favorites/" type="button"  class="btn btn-outline-dark">Favorites</a>    
+    {% endif %}
+    <h5 class="card-title">Title : {{recipe_detail.title}}</h5>
+    <h5 class="card-title">Author Name : <a href="/author/{{recipe_detail.author.id}}/" class="btn btn-info"  ><i class="fas fa-share"></i> {{recipe_detail.author.name}}</a></h5>
+    <h5 class="card-title">Time Required : {{recipe_detail.time_required}}</h5>
+    <h5 class="card-title">Time Required : {{recipe_detail.time_required}}</h5>
+    <h5 class="card-title">Description :  </h5>
+    <p class="card-text">{{recipe_detail.description}}</p>
+    <h5 class="card-title">Instructions :  </h5>
+    <p class="card-text">{{recipe_detail.instruction}}</p>
+   
+      <a href="/" type="button"  class="btn btn-secondary"><i class="fas fa-reply"></i> Back</a>
+  </div>
+</div>
 {% endif %}
-
-
-<a href="/">Go back home</a>
+{% endblock %}

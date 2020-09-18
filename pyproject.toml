@@ -1,13 +1,12 @@
 [tool.poetry]
-name = "Recipe_box_v1"
+name = "recipeboxv1"
 version = "0.1.0"
-description = "2nd assesment using django with models and migration"
-authors = ["sohail aslam <sohailaslam0707@gmail.com>"]
-license = "MIT"
+description = ""
+authors = ["Ben McKenzie <bmckenzie0522@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-django = "^3.1"
+django = "^3.1.1"
 
 [tool.poetry.dev-dependencies]
 
